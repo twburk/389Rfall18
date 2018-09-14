@@ -16,7 +16,9 @@ Digital acknowledgement of honor pledge: *Travis Burk*
 
 2. *Name : Fred Kruegster. Obtained by doing a quick google search.
 	 Twiiter : Kruegster1990. In the process of doing the google search, i found a link to his personal twitter account.
-	 Email : kruegster1990@tutanota.com. On his twitter account he had his work website listed. Once I navigated to this site, i 									 went to the 'About' section and found his email/user photo that matches his twitter.*
+	 Email : kruegster1990@tutanota.com. On his twitter account he had his work website listed. Once I navigated to this site, i went to the 'About' section and found his email/user photo that matches his twitter.
+	 Another Email : KRUEGSTER1990@GMAIL.COM. I found this on spokeo.com, with the same profile pic as his twitter.
+	 Instagram : Kruegster1990. Using intelteqniques.com I managed to find Freds IG profile.*
 
 3. *IP Address: 142.93.117.193
 	I got this by going to Krugsters company web page 'cornerstoneairlines.co' and navigating to the admin tab. Once I made it to that tab, i saw that the page was under construction, but the URL was this IP address. Additionally if you navigate
@@ -46,4 +48,4 @@ User Name : kruegster -- Based off of trial an error, i determine to 			   use F
 
 Password : pokemon -- After running the stub.py program, and waiting		   around 30 mins i determine that the password pokemon was a success
 
-In my terminal i ran nc 142.93.117.193 1337 and when promoted for the user name and password i entered the above and was successfully logged into the admin acount. I then cd'd to multiple directories, until i went into the home directory. Once i was in there i found another directory called flight_records. Once in there, there was a list of txt files that all contain flags. I determined*
+In my terminal i ran nc 142.93.117.193 1337 and when promoted for the user name and password i entered the above and was successfully logged into the admin acount. I then cd'd to multiple directories, until i went into the home directory. Once i was in there i found another directory called flight_records. Once in there, there was a list of txt files that all contain flags. I determined that the final flag is CMSC389R-{c0rn3rstone-air-27670}. I got this by going on his IG and finding his flight ticket. On the third pic of the ticket i found AAC27670, which is in the flight record directory.*
