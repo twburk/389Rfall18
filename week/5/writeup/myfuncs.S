@@ -30,7 +30,8 @@ my_strncpy:
 help:		      				     ;helper function
 	mov rbx, rdx  				     ;rbx will be size of third parameter
 	sub rbx, rcx  				     ;rbx will be distance of string to modify
-	mov byte ptr[rdi + rbx], byte ptr[rsi + rbx] ;replace characters 
+	mov al, byte [rsi + rbx]                 ;move character to register
+	mov byte [rdi + rbx], al                 ;move register character to dest string
 	loop help     				     ;decrease rcx by 1, if rcx != 0 then jump back to top of help.
         
 
