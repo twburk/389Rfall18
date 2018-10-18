@@ -22,8 +22,9 @@ Digital acknowledgement of honor pledge: *Travis Burk*
 
 5. This photo was taken 539.5 m above sea level.
 
-6.
+6. After using strings and the grep command i was able to find this flag: 
+CMSC389R-{look_I_f0und_a_str1ng}
 
-### Part 2 (55 pts)
+### Part 2 (60 pts)
 
 **
