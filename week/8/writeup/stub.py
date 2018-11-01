@@ -77,10 +77,8 @@ def png_out(data, offset, s_length):
 
 
 stype_dict = {
-	#2: (8, "<q", p, {'end': ""}),
 	3: (1, "<c", print_char, {'end' : "", 'encoding' : 'utf-8'}),
 	4: (8, "<d", print_int, {'end' : ""}),
-	#5: (4, "<L", print_int, {'end' : ""}),
 	6: (16, "<dd", p, {'end' : ""}),
 	7: (4, "<L", print_int, {'end' : ""}),
 	8: (1, "<c", print_char, {'end': "", 'encoding' : 'ascii'})
