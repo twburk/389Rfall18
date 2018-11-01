@@ -44,17 +44,16 @@ print("VERSION: %d" % int(version))
 def print_char(entry, end, encoding):
 	char, = entry
 	char = char.decode(encoding)
-	print(char, end)
+	print(char)
 
 def print_int(entry, end):
 	num, = entry
-	print(num, end)
+	print(num)
 
 def p(entry, end):
-	print(entry, end)
+	print(entry)
 
 timestamp = struct.unpack("<L", data[8:12])
-#print("TIMESTAMP: %d (%s)" %(timestamp, datetime.fromtimestamp(timestamp)))
 print("TIMESTAMP: %d " % timestamp)
 
 author = struct.unpack("<cccccccc", data[12:20])
@@ -68,12 +67,13 @@ print("DATA LENGTH: %d" % len(data))
 print("-------  BODY  -------")
 
 def png_out(data, offset, s_length):
-	filename = 'out.png'
-	f = open(filename, mode='wb')
-	header = [0x89,0x50,0x4E,0x47,0x0D,0x0A,0x1A,0x0A]
-	f.write(bytes(header))
-	f.write(data[offset:offset+s_length])
-	f.close()
+	raw = data[offset:offset + s_length];
+	magic = "89504E470D0A1A0A"
+	total = magic.decode("hex") + raw
+	png = open("image.png", "w")
+	png.write(total)
+
+
 
 stype_dict = {
 	2: (8, "<q", p, {'end': ""}),
@@ -93,6 +93,8 @@ while(offset < len(data)):
 	section_count += 1
 	
 	stype, slength = struct.unpack_from("<LL", data, offset)
+
+	print(section_count)
 
 	print("SECTION TYPE: %d" % stype)
 	print("SECTION LENGTH: %d" % slength)
