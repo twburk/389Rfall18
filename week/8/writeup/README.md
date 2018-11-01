@@ -35,7 +35,7 @@ Digital acknowledgement of honor pledge: *Travis Burk*
 
 2. *The author of the document is the user laz0rh4x.*
 
-3. *The header of the document states that there is 9 sections in the document.*
+3. *The header of the document states that there is 9 sections in the document; however the actual section count is 11.*
 
 4.
 

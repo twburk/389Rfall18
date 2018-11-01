@@ -41,14 +41,17 @@ print("VERSION: %d" % int(version))
 # We've parsed the magic and version out for you, but you're responsible for
 # the rest of the header and the actual FPFF body. Good luck!
 
-def print_char_entry(entry, end, encoding):
+def print_char(entry, end, encoding):
 	char, = entry
 	char = char.decode(encoding)
 	print(char, end)
 
-def print_int_entry(entry, end):
+def print_int(entry, end):
 	num, = entry
 	print(num, end)
+
+def p(entry, end):
+	print(entry, end)
 
 timestamp = struct.unpack("<L", data[8:12])
 #print("TIMESTAMP: %d (%s)" %(timestamp, datetime.fromtimestamp(timestamp)))
@@ -56,8 +59,6 @@ print("TIMESTAMP: %d " % timestamp)
 
 author = struct.unpack("<cccccccc", data[12:20])
 print(author)
-
-#print_char_entry(author, "\n", "ascii")
 
 section_count, = struct.unpack("<L", data[20:24])
 print("SECTION COUNT: %d" % section_count)
@@ -74,15 +75,26 @@ def png_out(data, offset, s_length):
 	f.write(data[offset:offset+s_length])
 	f.close()
 
+#stype_dict = {
+#	1: (1, "<c", print_char, {'end': "", 'encoding' : 'ascii'}),
+#	2: (1, "<c", print_char, {'end' : "", 'encoding' : 'utf-8'}),
+#	3: (4, "<L", print_int, {'end' : ""}),
+#	4: (8, "<q", p, {'end': ""}),
+#	5: (8, "<d", print_int, {'end' : ""}),
+#	6: (16, "<dd", p, {'end' : ""}),
+#	7: (4, "<L", print_int, {'end' : ""})
+#}
+
 stype_dict = {
-	1: (1, "<c", print_char_entry, {'end': "", 'encoding' : 'ascii'}),
-	2: (1, "<c", print_char_entry, {'end' : "", 'encoding' : 'utf-8'}),
-	3: (4, "<L", print_int_entry, {'end' : ""}),
-	#4: (8, "<q", print, {'end': ""}),
-	5: (8, "<d", print_int_entry, {'end' : ""}),
-	#6: (16, "<dd", print, {'end' : ""}),
-	7: (4, "<L", print_int_entry, {'end' : ""})
+	2: (8, "<q", p, {'end': ""}),
+	3: (1, "<c", print_char, {'end' : "", 'encoding' : 'utf-8'}),
+	4: (8, "<d", print_int, {'end' : ""}),
+	5: (4, "<L", print_int, {'end' : ""}),
+	6: (16, "<dd", p, {'end' : ""}),
+	7: (4, "<L", print_int, {'end' : ""}),
+	8: (1, "<c", print_char, {'end': "", 'encoding' : 'ascii'})
 }
+
 
 offset = 24
 section_count = 0
@@ -99,9 +111,6 @@ while(offset < len(data)):
 	startOff = offset
 
 	if(stype in stype_dict):
-		if(section_count == 9 or section_count == 10):
-			decoded_str = codecs.decode(data[offset:offset + slength], 'base64')
-			print(decoded_str)
 		(size,format_str,output_fun,args) = stype_dict[stype]
 
 		for i in range(0, int(slength/size)):
@@ -111,7 +120,7 @@ while(offset < len(data)):
 
 		print("")
 
-	elif(stype == 8):
+	elif(stype == 1):
 		png_out(data, offset, slength)
 
 	if(offset != startOff + slength):
