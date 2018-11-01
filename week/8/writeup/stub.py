@@ -68,6 +68,7 @@ print("-------  BODY  -------")
 
 def png_out(data, offset, s_length):
 	raw = data[offset:offset + s_length];
+	offset += s_length
 	magic = "89504E470D0A1A0A"
 	total = magic.decode("hex") + raw
 	png = open("image.png", "w")
@@ -76,10 +77,10 @@ def png_out(data, offset, s_length):
 
 
 stype_dict = {
-	2: (8, "<q", p, {'end': ""}),
+	#2: (8, "<q", p, {'end': ""}),
 	3: (1, "<c", print_char, {'end' : "", 'encoding' : 'utf-8'}),
 	4: (8, "<d", print_int, {'end' : ""}),
-	5: (4, "<L", print_int, {'end' : ""}),
+	#5: (4, "<L", print_int, {'end' : ""}),
 	6: (16, "<dd", p, {'end' : ""}),
 	7: (4, "<L", print_int, {'end' : ""}),
 	8: (1, "<c", print_char, {'end': "", 'encoding' : 'ascii'})
@@ -112,6 +113,22 @@ while(offset < len(data)):
 
 		print("")
 
+	elif(stype == 5):
+		section_val = []
+		for k in range(0, slength / 4):
+			word, = struct.unpack("<L", data[offset:offset+4])
+			offset += 4;
+			section_val.append(word)
+		print(section_val)
+
+	elif(stype == 2):
+		section_val = []
+		for k in range(0, slength / 8):
+			word, = struct.unpack("<Q", data[offset:offset+8])
+			offset += 8;
+			section_val.append(word)
+		print(section_val)                                                                                                                                                                                      
+        
 	elif(stype == 1):
 		png_out(data, offset, slength)
 
