@@ -1,0 +1,47 @@
+ Output of script : 
+=========================================
+Hello there! Welcome to my hash workshop.
+=========================================
+Find me the md5 hash of wUXZGrS9fC
+>>> 
+wUXZGrS9fC
+Correct!
+Find me the sha1 hash of OUJNF7Xj8L
+>>> 
+OUJNF7Xj8L
+Correct!
+Find me the sha512 hash of HwycUrnMhQ
+>>> 
+HwycUrnMhQ
+Correct!
+Find me the sha224 hash of SYB9srTwvh
+>>> 
+SYB9srTwvh
+Correct!
+Find me the sha512 hash of gm6hdIpj7h
+>>> 
+gm6hdIpj7h
+Correct!
+Find me the sha256 hash of Gq1Lz7RbQm
+>>> 
+Gq1Lz7RbQm
+Correct!
+Find me the sha512 hash of BlA9rViDWG
+>>> 
+BlA9rViDWG
+Correct!
+Find me the md5 hash of 3Cw00NrR6b
+>>> 
+3Cw00NrR6b
+Correct!
+Find me the sha256 hash of gaAELaLqZe
+>>> 
+gaAELaLqZe
+Correct!
+Find me the md5 hash of e3xQwUvI6z
+>>> 
+e3xQwUvI6z
+Correct!
+1541789643
+1541789644
+You win! CMSC389R-{H4sh-5l!ngInG-h@sH3r}

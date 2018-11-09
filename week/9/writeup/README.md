@@ -14,55 +14,8 @@ Digital acknowledgement of honor pledge: *Travis Burk*
 
 
 ### Part 2 (40 Pts)
-*Flag : CMSC389R-{H4sh-5l!ngInG-h@sH3r}
- Output of script : 
- =========================================
-Hello there! Welcome to my hash workshop.
-=========================================
-Find me the md5 hash of wUXZGrS9fC
->>> 
-wUXZGrS9fC
-Correct!
-Find me the sha1 hash of OUJNF7Xj8L
->>> 
-OUJNF7Xj8L
-Correct!
-Find me the sha512 hash of HwycUrnMhQ
->>> 
-HwycUrnMhQ
-Correct!
-Find me the sha224 hash of SYB9srTwvh
->>> 
-SYB9srTwvh
-Correct!
-Find me the sha512 hash of gm6hdIpj7h
->>> 
-gm6hdIpj7h
-Correct!
-Find me the sha256 hash of Gq1Lz7RbQm
->>> 
-Gq1Lz7RbQm
-Correct!
-Find me the sha512 hash of BlA9rViDWG
->>> 
-BlA9rViDWG
-Correct!
-Find me the md5 hash of 3Cw00NrR6b
->>> 
-3Cw00NrR6b
-Correct!
-Find me the sha256 hash of gaAELaLqZe
->>> 
-gaAELaLqZe
-Correct!
-Find me the md5 hash of e3xQwUvI6z
->>> 
-e3xQwUvI6z
-Correct!
-1541789643
-1541789644
-You win! CMSC389R-{H4sh-5l!ngInG-h@sH3r}
+*Flag : CMSC389R-{H4sh-5l!ngInG-h@sH3r}*
 
-Process : My throught process of coding this script was to have a while loop to keep executing until the user types in "quit". In the beginning of the while loop it will print the data recieved from the server. Following the print of the data I put a raw_input command that will ask the user for the answer of the question. I then would go online and manually find the hash of the password. After running this twice i realized there was a time limit of 10 seconds to get the answers. I then changed my script to answer the questions automoatically. I start by modifying the while loop to online run while the counter does not equal 10 (since there is only 10 questions). Once in the while loop we will split the data by whitespaces. This will return an array of all the strings in the data. If the counter is 0, we will set sha to be the 9 index of the array and passw to the 12 index of the array, if the counter is anything other than 0 sha will be the 3 index and passw will be the 6 index. This is because the server returns more strings in data when the first question is asked. From there we will reset passw to be the first 10 characters of its string, passw at first will contain a new line char and >>> at the end of the string. We are only worried about the characters we need to hash. Next I created If/elif statement that compares sha to all the hashlib sha. Depending on what if statement is true we will hash passw with that hash function. Finally we will send the hash to the server to get a correct result for that question. After answer all 10 questions I recieve the flag stated above.*
+*Process : My throught process of coding this script was to have a while loop to keep executing until the user types in "quit". In the beginning of the while loop it will print the data recieved from the server. Following the print of the data I put a raw_input command that will ask the user for the answer of the question. I then would go online and manually find the hash of the password. After running this twice i realized there was a time limit of 10 seconds to get the answers. I then changed my script to answer the questions automoatically. I start by modifying the while loop to online run while the counter does not equal 10 (since there is only 10 questions). Once in the while loop we will split the data by whitespaces. This will return an array of all the strings in the data. If the counter is 0, we will set sha to be the 9 index of the array and passw to the 12 index of the array, if the counter is anything other than 0 sha will be the 3 index and passw will be the 6 index. This is because the server returns more strings in data when the first question is asked. From there we will reset passw to be the first 10 characters of its string, passw at first will contain a new line char and >>> at the end of the string. We are only worried about the characters we need to hash. Next I created If/elif statement that compares sha to all the hashlib sha. Depending on what if statement is true we will hash passw with that hash function. Finally we will send the hash to the server to get a correct result for that question. After answer all 10 questions I recieve the flag stated above.*
 
 
