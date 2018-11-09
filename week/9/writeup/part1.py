@@ -14,9 +14,10 @@ salts = string.ascii_lowercase
 #get hashes from file
 hashes = open("hashes", 'r')
 
-h = [];
 for h in hashes:
-	h = h.strip();
+	h = h.strip()
+	print("Testing Hash: " + h)
+	wordlist.seek(0)
 	for password in wordlist:
 		password = password.strip()
 		for salt in salts:
@@ -25,7 +26,6 @@ for h in hashes:
 			m.update(password)
 			test = m.hexdigest()
 			if(test == h):
-				print("Salt and password found : ")
 				print("Salt : " + salt)
 				print("password : " + password)
 

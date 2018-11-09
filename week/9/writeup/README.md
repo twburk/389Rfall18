@@ -11,7 +11,8 @@ Digital acknowledgement of honor pledge: *Travis Burk*
 ## Assignment 9 Writeup
 
 ### Part 1 (60 Pts)
-
+*The passwords and salts for each hash can be found in the part1_output.txt file. 
+Process: To brute force this problem, we must first open the password file and the hash file. In my code the variable for each would be wordlist, and hashes. From there I nested three for loops. The outter most for loop will go through each hash in the file, h, and will execute the next two for loops on each hash. The second for loop will go through each password in the file. Before this happens we point the file back to the begginning by calling wordlist.seek(0). We do this because after going through the list for the first hash the file does not begin over for the next hash. After getting each password from the file we will append each lower case letter to the beggining by having the third for loop go through all 26 letters and append it to the begginning of that word. Each time we append the character to the word we will get the sha512 hash of the new word and compare it to the testing hash. If it is equal print the salt and password that passed this case if not try the remaining characters and passwords in the file.*
 
 ### Part 2 (40 Pts)
 *Flag : CMSC389R-{H4sh-5l!ngInG-h@sH3r}*
