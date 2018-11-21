@@ -2,8 +2,6 @@
 # from the git repo
 import md5py, socket, hashlib, string, sys, os, time, struct
 
-f = open("output.txt", "w")
-
 host = "142.93.118.186"   # IP address or URL
 port = 1234 # port
 
@@ -16,8 +14,7 @@ print(data)
 ### STEP 1: Calculate forged hash ###
 #####################################
 
-one = "1\n"
-s.send(one)			     
+s.send("1\n")			     
 data = s.recv(1024)
 print(data)
 
@@ -31,21 +28,19 @@ temp = data[40:]
 legit = temp.strip()#a legit hash of secret + message goes here, obtained from signing a message
 
 print("LEGIT : " + legit)
-f.write("Legit hash: " + legit + "\n")
 
 # initialize hash object with state of a vulnerable hash
 fake_md5 = md5py.new('A' * 64)
 fake_md5.A, fake_md5.B, fake_md5.C, fake_md5.D = md5py._bytelist2long(legit.decode('hex'))
 
-malicious = 'testing2'  # put your malicious message here
+malicious = 'badTesting'  # put your malicious message here
 
 # update legit hash with malicious message
 fake_md5.update(malicious)
 
 # fake_hash is the hash for md5(secret + message + padding + malicious)
 fake_hash = fake_md5.hexdigest()
-print(fake_hash)
-f.write("Fake hash" + fake_hash + "\n")
+print("FAKE : " + fake_hash)
 
 
 #############################
@@ -61,52 +56,33 @@ f.write("Fake hash" + fake_hash + "\n")
 # craft padding to align the block as MD5 would do it
 # (i.e. len(secret + message + padding) = 64 bytes = 512 bits
 
-for i in range(6,15):
-	#pad = 64 - ((len(message)+14) %64)
-	#bits = 8 * (len(message)+i)
+for j in range(6,15):
+	messageLength = len(message) + j
+	paddingLength = 56 - messageLength
+	padding = "\x80"
+	for i in range(1, paddingLength):
+		padding += "\x00"
 
-	#temp = message
-	#temp += '\x80' + '\000' * (pad - 1)
-	#temp += struct.pack('<q', bits)
-
-
-	#encrypt = temp + malicious
-
-	#payload = ""
-	#for c in encrypt:
-	#	payload =  payload + '\\x%02X' % ord(c)
-
-	null = "\x00" * 43
-	end = "\x00" * 7
-	padding = "\x80" + null + "\x60" + end
+	bits = messageLength * 8
+	padding += struct.pack("<q", bits)
 
 	payload = message + padding + malicious
 
-	print("PAYLOAD: " + payload)
+	print("PAYLOAD : " + repr(payload))
+	
 	# send `fake_hash` and `payload` to server (manually or with sockets)
 	# REMEMBER: every time you sign new data, you will regenerate a new secret!
-	f.write("PAYLOAD: " + payload + "\n")
 
-
-	two = "2\n"
-	s.send(two)	#test signature     
+	s.send("2\n")	#test signature     
 	data = s.recv(1024)
 	print(data)
-
 	s.send(fake_hash + "\n")	
-
 	data = s.recv(1024)
+	time.sleep(1)
 	print(data)
-
 	s.send(payload + "\n")	
-
+	time.sleep(1)
 	data = s.recv(1024)
 	print(data)
-	data = s.recv(1024)
-	print(data)
-	data = s.recv(1024)
-	print(data)
-
 
 s.close()# close the connection
-f.close()#close the file

@@ -1,0 +1,140 @@
+python stub.py 
+
+Hello, and welcome to the MD5 Digital Notary!
+What would you like to do today?
+1) Sign some data
+2) Test a signature's validity
+3) Quit :(
+>>>
+ 
+Everything I sign will have a secret only I know at the beginning.
+This way, only I will know what I've hash, and no one else can forge it!
+However, I will change the secret every time you ask me to sign something!
+Input the data you'd like to hash as hex.
+You can also input hex by using \x escapes
+(e.g. \x43\x4d\x53\x43\x33\x38\x39\x52\x2d\x7b\x34\x70\x72\x31\x6c\x5f\x66\x30\x30\x6c\x7a\x7d)
+You can mix regular text and \x sequences, as such: Hello World!\x00\x00\x00
+>>>
+ 
+Your data sent was: testing
+Your hash: a7a7f01c3344b53c09a30cead97adfde
+
+LEGIT : a7a7f01c3344b53c09a30cead97adfde
+6624067665c001feb4389e44fe334612
+PAYLOAD: testing?htesting2
+
+Hello, and welcome to the MD5 Digital Notary!
+What would you like to do today?
+1) Sign some data
+2) Test a signature's validity
+3) Quit :(
+>>>
+ 
+Since I change my secret upon every signature, I can only check hashes based on the most recent secret that I've generated.
+First, input the hash as a hex string (e.g. 7e60bc642fefc11b43792e8745df6c1d)
+>>>
+ 
+Next, input the data you would like to test.
+Remember, you can send mixed text and \x sequences.
+>>> 
+Now let me see...
+6624067665c001feb4389e44fe334612
+'testing\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00h\x00\x00\x00\x00\x00\x00\x00testing2'
+678cffec5489a969d571f95fc9ad70c8
+
+Hmm... I've either signed this data before, or your hash doesn't match the data.
+
+Hello, and welcome to the MD5 Digital Notary!
+What would you like to do today?
+1) Sign some data
+2) Test a signature's validity
+3) Quit :(
+>>>
+PAYLOAD: testing?ptesting2
+ 
+Since I change my secret upon every signature, I can only check hashes based on the most recent secret that I've generated.
+First, input the hash as a hex string (e.g. 7e60bc642fefc11b43792e8745df6c1d)
+>>>
+ 
+Next, input the data you would like to test.
+Remember, you can send mixed text and \x sequences.
+>>>
+ 
+Now let me see...
+6624067665c001feb4389e44fe334612
+'testing\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00p\x00\x00\x00\x00\x00\x00\x00testing2'
+78f291a1fca709e1b2ef3637dd8857ef
+
+Hmm... I've either signed this data before, or your hash doesn't match the data.
+
+Hello, and welcome to the MD5 Digital Notary!
+What would you like to do today?
+1) Sign some data
+2) Test a signature's validity
+3) Quit :(
+>>>
+PAYLOAD: testing?xtesting2
+ 
+Since I change my secret upon every signature, I can only check hashes based on the most recent secret that I've generated.
+First, input the hash as a hex string (e.g. 7e60bc642fefc11b43792e8745df6c1d)
+>>>
+ 
+Next, input the data you would like to test.
+Remember, you can send mixed text and \x sequences.
+>>>
+ 
+Now let me see...
+6624067665c001feb4389e44fe334612
+'testing\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00x\x00\x00\x00\x00\x00\x00\x00testing2'
+4b2b86873a15757b314833f60fe3bc79
+
+Hmm... I've either signed this data before, or your hash doesn't match the data.
+
+Hello, and welcome to the MD5 Digital Notary!
+What would you like to do today?
+1) Sign some data
+2) Test a signature's validity
+3) Quit :(
+>>>
+PAYLOAD: testing??testing2
+ 
+Since I change my secret upon every signature, I can only check hashes based on the most recent secret that I've generated.
+First, input the hash as a hex string (e.g. 7e60bc642fefc11b43792e8745df6c1d)
+>>>
+ 
+Next, input the data you would like to test.
+Remember, you can send mixed text and \x sequences.
+>>>
+ 
+Now let me see...
+6624067665c001feb4389e44fe334612
+'testing\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x80\x00\x00\x00\x00\x00\x00\x00testing2'
+dd5a85783968a7d71c2909ceca509294
+
+Hmm... I've either signed this data before, or your hash doesn't match the data.
+
+Hello, and welcome to the MD5 Digital Notary!
+What would you like to do today?
+1) Sign some data
+2) Test a signature's validity
+3) Quit :(
+>>>
+PAYLOAD: testing??testing2
+ 
+Since I change my secret upon every signature, I can only check hashes based on the most recent secret that I've generated.
+First, input the hash as a hex string (e.g. 7e60bc642fefc11b43792e8745df6c1d)
+>>>
+ 
+Next, input the data you would like to test.
+Remember, you can send mixed text and \x sequences.
+>>>
+ 
+Now let me see...
+
+Wow... I've never signed this data before!
+This is crazy... I can't let anyone know that my service is broken!
+Hey, if I give you this flag, you better keep quiet about this!
+CMSC389R-{i_still_put_the_M_between_the_DV}
+Made in Maryland - Substantial
+
+PAYLOAD: testing??testing2
