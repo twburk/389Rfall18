@@ -16,3 +16,14 @@ Digital acknowledgement of honor pledge: *Travis Burk*
 
 
 ### Part 2 (30 Pts)
+*Question 1 : For the first question I inputed a script tag with an alert() function found inside to get me to the next questions. "<scipt> alert(); </script>"*
+
+*Question 2 : For this question I thought the script tag would work once again; however my thought process was wrong. It took me several minutes and a hint to figure out that I needed to pass in an img that does not exist in order to get a "onerror", which generates a alert.*
+
+*Question 3 : For this question I needed all three hints. After rereading the hints over and over I found that this was a Dom-based injection. I entered in the following address https://xss-game.appspot.com/level3/frame#default= to get the alert to pop up.*
+
+*Question 4 : For this question I used all three hints again, and viewed the source code. After several minutes of looking at the source code I noticed that when the timer is started, it is using the users input. So, by using this input 1}}'); alert('{{ I was able to get the alert to pop up. This allows the timer to start, end and then call the alert function.*
+
+*Question 5 : This question took me a while to figure out. I viewed all the pages several times, until i realized that I could enter a value for next on the signup page. Looking at the source code I found <a href="{{ next }}">Next >></a>, {{ next }} is also found on the confirm page after signing up. So instead of having the signup page show confirm I pass ing javascript:alert() to get the alert to pop up. https://xss-game.appspot.com/level5/frame/signup?next=javascript:alert()*
+
+*Question 6 : For this question I also use all the hints and view the page source. I see that the javascript file is uploaded via the DOM. The security check only checks for the string http in the javascript file. The hints told me that GOOGLE provides an API which I can use to trigger the alert I need. Since the security check is case sensitive I pass the GOOGLE API link to the jsapi file to get the alert to pop up.  https://xss-game.appspot.com/level6/frame#HTTPs://www.google.com/jsapi?callback=alert*
