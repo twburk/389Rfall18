@@ -16,7 +16,8 @@ Digital acknowledgement of honor pledge: *Travis Burk*
 
 
 ### Part 2 (30 Pts)
-*Question 1 : For the first question I inputed a script tag with an alert() function found inside to get me to the next questions. "<scipt> alert(); </script>"*
+*Question 1 : For the first question I inputed a script tag with an alert() function found inside to get me to the next questions. 
+"<scipt> alert(); </script>"*
 
 *Question 2 : For this question I thought the script tag would work once again; however my thought process was wrong. It took me several minutes and a hint to figure out that I needed to pass in an img that does not exist in order to get a "onerror", which generates a alert.*
 
